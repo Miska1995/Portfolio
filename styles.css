@@ -1,0 +1,869 @@
+/* ===== GENERAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY STYLING ===== */
+body {
+    background: url('background2.jpg') no-repeat center center fixed;
+    background-size: cover; /* Ensures the image covers the entire viewport */
+    color: #000000;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ===== HEADER STYLING ===== */
+header {
+    background-color: rgba(37, 18, 101, 0.6); /* Semi-transparent #251265 */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    backdrop-filter: blur(5px); /* Adds blur for a modern touch */
+    border: 5px double #c6aafa; /* Fancy double border with gradient color */
+    border-radius: 15px; /* Smoothly rounded corners */
+    margin: 0 10px; /* Add spacing on the sides */
+    max-width: 100%;
+}
+/* MT. Logo in Header with Hover Effect */
+.header-logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.3),
+        2px 2px 5px rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.3); /* Glow effect */
+    margin-right: 1rem;
+    position: absolute; /* Position the logo */
+    left: 20px; /* Align to the right edge */
+    top: 35%; /* Center vertically within the header */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    transition: transform 0.5s ease; /* Smooth animation */
+}
+
+/* Hover Effect for Spinning */
+.header-logo:hover {
+    transform: translateY(-50%) rotate(360deg); /* Spins the logo */
+}
+/* Header Title */
+header h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Soft white glow */
+    background: linear-gradient(90deg, #ffffff, #d3b8ff); /* Subtle gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: tilt 3s infinite ease-in-out; /* Gentle tilt animation */
+}
+
+/* Navigation Styling */
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Underline Effect */
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out; /* Smooth underline reveal */
+}
+
+header nav ul li a:hover::after {
+    width: 100%; /* Full underline on hover */
+}
+
+/* Waving Hand Styling */
+.wave-emoji {
+    font-size: 7.5rem; /* Adjust emoji size */
+    position: absolute; /* Position relative to the container */
+    left: 610px; /* Adjust to move it to the left of the image */
+    top: 50%; /* Vertically center the emoji with the image */
+    transform: translateY(-50%); /* Center align using transform */
+    transform-origin: bottom center; /* Set pivot for animation */
+    animation: wave 1.5s infinite ease-in-out; /* Smooth waving animation */
+    cursor: default; /* Prevent pointer cursor */
+}
+
+/* Wave Animation */
+@keyframes wave {
+    0% { transform: translateY(-50%) rotate(0); }
+    25% { transform: translateY(-50%) rotate(15deg); }
+    50% { transform: translateY(-50%) rotate(0); }
+    75% { transform: translateY(-50%) rotate(-15deg); }
+    100% { transform: translateY(-50%) rotate(0); }
+}
+
+/* Speech Bubble Styling */
+.speech-bubble {
+    position: absolute;
+    right: 535px; /* Keep the bubble on the right of the image */
+    top: 30%; /* Adjust vertically to align with the image */
+    width: 200px; /* Width of the bubble */
+    padding: 10px 15px; /* Padding inside the bubble */
+    background: linear-gradient(135deg, #f3f4f6, #c6aafa);
+    border: 2px double #c6aafa; /* Border to match your theme */
+    border-radius: 10px; /* Rounded edges for the bubble */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-size: 1.1rem; /* Adjust font size */
+    color: #000000; /* Text color */
+    line-height: 1.4; /* Improve text readability */
+    text-align: center; /* Center-align text inside the bubble */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+/* Speech Bubble Pointer */
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    top: 50%; /* Center the pointer vertically */
+    left: -20px; /* Move the pointer to the left side of the bubble */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent; /* Creates the pointer */
+    border-right-color: #ffffff; /* Match bubble background */
+    border-left: none; /* Remove the left border */
+    margin-top: -10px; /* Adjust to center the pointer */
+}
+
+/* Profile Image Container */
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px; /* Push the image down to avoid the navbar */
+    margin-bottom: 0;
+    position: relative; /* Ensure proper stacking context */
+    z-index: 10;
+}
+
+/* Profile Image */
+.profile-image {
+    width: 250px; /* Adjust the size of the image */
+    height: 250px; /* Ensure a square ratio for circular effect */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensure the image scales well inside the circle */
+    border: 5px double #c6aafa; /* Fancy double border with gradient color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+/* Hover Animation */
+.profile-image:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+}
+/* About Me Section Adjustments */
+#about {
+    margin-top: 2rem; /* Add space between the image and the section */
+    background: linear-gradient(135deg, #f3f4f6, #c6aafa);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 53%;
+    line-height: 1.8;
+    margin-left: auto;
+    margin-right: auto; /* Center the section */
+}
+/* ===== ABOUT SUMMARY STYLING ===== */
+#about-summary {
+    text-align: left; /* Align text to the left for natural reading flow */
+    font-size: 1.1rem; /* Slightly larger font size for better readability */
+    line-height: 1.8; /* Improve line spacing */
+    margin: 1rem auto; /* Center the box horizontally */
+    color: #333; /* Neutral text color for accessibility */
+    background: rgba(255, 255, 255, 0.8); /* Subtle background for better contrast */
+    padding: 1.5rem; /* Add padding for spacing around the text */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 100%; /* Allow the box to span the full width */
+    width: calc(100% - 2rem); /* Prevent the box from touching the edges */
+}
+
+/* Section Title Styling */
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    position: relative; /* Required for the animation */
+    animation: signal 1.5s infinite ease-in-out;
+    text-align: center; /* Keep the title centered */
+}
+
+/* Add an info icon to the right side of the title */
+#about h2::after {
+    content: "ℹ️";
+    font-size: 2rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+    animation: spinHorizontal 2s infinite linear; /* Smooth horizontal spin animation */
+}
+
+/* Button Styling */
+#read-more-btn {
+    display: block; /* Center the button */
+    margin: 1.5rem auto;
+    padding: 0.7rem 1.5rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#read-more-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Expandable Content Styling */
+#about-more {
+    margin: 1rem auto;
+    text-align: left; /* Align text inside the expandable box */
+    max-width: 100%; /* Increase the width of the box */
+    padding: 1rem; /* Add padding for a cleaner look */
+    overflow: hidden;
+    max-height: 0; /* Collapse content initially */
+    opacity: 0; /* Make content invisible */
+    visibility: hidden;
+    line-height: 1.8; /* Improve readability inside the box */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-in;
+}
+
+#about-more.expanded {
+    max-height: 1300px; /* Increased height to fit content including icons */
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-in;
+}
+
+/* Expandable Content Styling with White Box */
+#about-more p {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 1rem; /* Add padding for spacing inside the box */
+    border-radius: 10px; /* Smoothly rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 1rem; /* Space between paragraphs */
+    line-height: 1.8; /* Improve readability */
+}
+/* Center the subtitle title */
+#about-more .subtitle {
+    text-align: center; /* Center the text */
+    margin: 1.5rem auto; /* Add spacing above and below */
+    font-weight: bold; /* Ensure it's prominent */
+    font-size: 1.8rem; /* Slightly larger font size */
+    color: #333; /* Ensure readability */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}
+
+
+/* Define the animation for the glowing icon */
+@keyframes iconPulse {
+    0% {
+        transform: scale(1); /* Normal size */
+        text-shadow: 
+            0 0 10px rgba(255, 255, 255, 0.5), /* Softer white glow */
+            0 0 15px rgba(255, 255, 255, 0.4), 
+            0 0 20px rgba(255, 255, 255, 0.3), 
+            0 0 25px rgba(255, 255, 255, 0.2); /* Subtle outer glow */
+    }
+    50% {
+        transform: scale(1.2); /* Slightly larger size */
+        text-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.6), /* Brighter white glow */
+            0 0 30px rgba(255, 255, 255, 0.5), 
+            0 0 40px rgba(255, 255, 255, 0.4), 
+            0 0 50px rgba(255, 255, 255, 0.3); /* Stronger glow */
+    }
+    100% {
+        transform: scale(1); /* Back to normal size */
+        text-shadow: 
+            0 0 10px rgba(255, 255, 255, 0.5), /* Softer white glow */
+            0 0 15px rgba(255, 255, 255, 0.4), 
+            0 0 20px rgba(255, 255, 255, 0.3), 
+            0 0 25px rgba(255, 255, 255, 0.2); /* Subtle outer glow */
+    }
+}
+
+#about-more p {
+    margin-bottom: 1rem;
+}
+/* Subtle glow animation */
+@keyframes subtleGlow {
+    from {
+        text-shadow: 
+            0 0 4px rgba(255, 255, 255, 0.3), 
+            0 0 8px rgba(255, 255, 255, 0.2); /* Start with less intensity */
+    }
+    to {
+        text-shadow: 
+            0 0 8px rgba(255, 255, 255, 0.6), 
+            0 0 16px rgba(255, 255, 255, 0.5); /* Slightly brighter at peak */
+    }
+}
+
+/* ===== PROJECTS SECTION ===== */
+#projects {
+    margin-top: 4rem;
+}
+
+#projects h2 {
+    font-size: 2.5rem; /* Slightly smaller than the main title */
+    color: #ffffff; /* Keep the letters plain white */
+    text-align: center; /* Ensure the text and icon are centered */
+    margin: 0 auto 1.5rem; /* Center horizontally and add bottom margin */
+    display: flex; /* Align icon and text together */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 0.5rem; /* Add space between the title and the icon */
+}
+
+/* Icon next to the title */
+#projects h2::after {
+    content: "💡"; /* Use a lightbulb emoji or replace with a custom icon */
+    font-size: 2rem; /* Adjust icon size */
+    color: #ffffff; /* Keep the icon color matching the text */
+    text-shadow: 
+        0 0 10px #251265, /* Purple glow for the icon */
+        0 0 20px #251265, 
+        0 0 30px #251265, 
+        0 0 40px #251265; /* Adjust glow intensity for the icon */
+    animation: iconPulse 2s infinite ease-in-out; /* Add animation to the icon */
+}
+/* Project Cards Layout */
+#project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+#project-list .project {
+    background: linear-gradient(135deg, #f3f4f6, #c6aafa);
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#project-list .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#project-list .project img {
+    width: 100%;
+    max-width: 280px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-style: groove;
+    border-color: #000000;
+    border: 5px double #c6aafa; /* Fancy double border with gradient color */
+}
+
+#project-list .project h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #000000;
+    text-align: left;
+}
+
+#project-list .project p {
+    font-size: 0.9rem;
+    color: #000000;
+    margin-bottom: 1rem;
+    text-align: left; /* Aligns text for cleaner, balanced edges */
+    line-height: 1.6; /* Adds spacing between lines for better readability */
+    word-spacing: 0.01rem; /* Adjusts spacing between words */
+}
+
+#projects .btn {
+    margin: 2rem auto; /* Adds equal margin on top and bottom, centers horizontally */
+    display: block; /* Ensures the button spans its container width only */
+    padding: 0.75rem 1.5rem;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#projects .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+/* Project Details Styling */
+.project-details {
+    background: rgba(255, 255, 255, 0.8); /* White box with slight transparency */
+    padding: 1rem; /* Add padding for spacing */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    color: #333; /* Neutral text color for readability */
+    line-height: 1.8; /* Improve text readability */
+    margin: 1rem 0; /* Add spacing around the box */
+    overflow: hidden; /* Ensure content doesn’t overflow */
+    opacity: 0; /* Hidden initially */
+    max-height: 0; /* Collapse content initially */
+    visibility: hidden; /* Fully hide the content */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-in; /* Smooth transition */
+}
+
+.project-details:not(.hidden) {
+    max-height: 500px; /* Adjust height based on content */
+    opacity: 1; /* Make content visible */
+    visibility: visible; /* Show content */
+}
+/* Dropdown Details */
+.project-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+}
+
+.project-details:not(.hidden) {
+    max-height: 500px;
+    opacity: 1;
+}
+/* Technologies Section for Projects */
+.technologies {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.technologies h4 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+  /* Technology Icon Styling for Projects */
+.technologies .icons i {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+  /* Individual Icon Colors (Reused from About Me) */
+.technologies .fa-html5 { color: #E44D26; }
+.technologies .fa-css3-alt { color: #2965F1; }
+.technologies .fa-js-square { color: #F0DB4F; }
+.technologies .fa-react { color: #61DBFB; }
+.technologies .fa-bootstrap { color: #7952B3; }
+.technologies .fa-wordpress { color: #21759B; }
+
+  /* Hover Effect for Icons */
+.technologies .icons i:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact {
+    background: linear-gradient(135deg, #f3f4f6, #c6aafa);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 53%;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    position: relative; /* Required for the animation */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    animation: signal 1.5s infinite ease-in-out; /* Add animation */
+}
+
+/* Signal Effect Animation */
+@keyframes signal {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Optional: Add a pulsating and ringing phone icon */
+#contact h2::after {
+    content: "📞"; /* Use a phone emoji */
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+    color: #32a852; /* Soft green resembling a phone */
+    text-shadow: 
+        0 0 5px rgba(50, 168, 82, 0.8), /* Bright green glow */
+        0 0 10px rgba(50, 168, 82, 0.6); /* Subtle outer glow */
+    animation: pulse 1.5s infinite ease-in-out, ring 2s infinite ease-in-out; /* Add pulse and ring animations */
+}
+
+/* Optional: Add a pulsating and ringing phone icon */
+#contact h2::after {
+    content: "📞"; /* Use a phone emoji */
+    font-size: 2rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+    color: #8c6ef0; /* Soft purple matching the portfolio theme */
+    text-shadow: 
+        0 0 5px rgba(140, 110, 240, 0.8), /* Subtle purple glow */
+        0 0 10px rgba(140, 110, 240, 0.6); /* Outer glow */
+    animation: pulse 1.5s infinite ease-in-out, ring 2s infinite ease-in-out; /* Add pulse and ring animations */
+}
+
+/* Horizontal spinning effect */
+@keyframes spinHorizontal {
+    0% {
+        transform: rotateY(0deg); /* Initial state */
+    }
+    25% {
+        transform: rotateY(90deg); /* Quarter spin */
+    }
+    50% {
+        transform: rotateY(180deg); /* Half spin */
+    }
+    75% {
+        transform: rotateY(270deg); /* Three-quarters spin */
+    }
+    100% {
+        transform: rotateY(360deg); /* Full spin */
+    }
+}
+
+/* Ringing effect: subtle side-to-side movement */
+@keyframes ring {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px) rotate(-10deg);
+    }
+    50% {
+        transform: translateX(2px) rotate(10deg);
+    }
+    75% {
+        transform: translateX(-2px) rotate(-10deg);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#contact p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #000000;
+}
+
+/* Fancy Form Styling */
+.fancy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.fancy-form label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fancy-form input,
+.fancy-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.fancy-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.fancy-form button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.fancy-form button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Footer Links Styling */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between icons */
+    margin-top: 0.5rem;
+}
+
+/* Individual Icon Styling */
+.linkedin-icon,
+.github-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.2s ease; /* Add smooth scaling effect */
+}
+
+.linkedin-icon:hover,
+.github-icon:hover {
+    transform: scale(1.2); /* Slightly enlarges the icon */
+}
+
+.linkedin-icon:hover {
+    color: #0e76a8; /* LinkedIn blue */
+}
+
+.github-icon:hover {
+    color: #4078c0; /* GitHub blue */
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    #project-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== SPACING BETWEEN SECTIONS ===== */
+section {
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+#projects {
+    margin-top: 4rem;
+}
+
+#about, #contact {
+    margin-top: 3rem;
+}
+
+/* Section Divider */
+.section-divider {
+    height: 2px;
+    background: linear-gradient(to right, #ddd, transparent);
+    margin: 2rem 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* General Button Styling */
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+/* General Skill Icon Styling */
+#skill-icons {
+    display: flex;
+    gap: 1rem; /* Space between icons */
+    justify-content: center;
+    flex-wrap: wrap; /* Allow icons to wrap on smaller screens */
+}
+
+#skill-icons i {
+    font-size: 2rem; /* Adjust the size of the icons */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effects */
+}
+
+/* Individual Icon Colors */
+#skill-icons .fa-html5 { color: #E44D26; }
+#skill-icons .fa-css3-alt { color: #2965F1; }
+#skill-icons .fa-js-square { color: #F0DB4F; }
+#skill-icons .fa-react { color: #61DBFB; }
+#skill-icons .fa-wordpress { color: #21759B; }
+#skill-icons .fa-windows { color: #00A4EF; }
+#skill-icons .fa-apple { color: #A3AAAE; }
+#skill-icons .fa-linux { color: #000000; }
+
+/* Hover Effect for Icons */
+#skill-icons i:hover {
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+    filter: brightness(1.2); /* Brighten the color slightly */
+}
+.skills-title {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-top: 1.5rem;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+}
+#soft-skills .fa-users {
+    color: #007BFF; /* Blue for teamwork */
+}
+
+#soft-skills .fa-sync-alt {
+    color: #28A745; /* Green for adaptability */
+}
+
+#soft-skills .fa-comments {
+    color: #FFC107; /* Yellow for communication */
+}
+
+#soft-skills .fa-clock {
+    color: #DC3545; /* Red for time management */
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Footer Styling */
+footer {
+    background-color: rgba(37, 18, 101, 0.6); /* Semi-transparent #251265 */
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px double #c6aafa; /* Fancy double border with gradient color */
+    border-radius: 15px; /* Smoothly rounded corners */
+    margin: 0 10px; /* Add spacing on the sides */
+    max-width: 100%; /* Full-width border consistency */
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Large 3D "MT." Logo - Footer with Hover Effect */
+.footer-logo {
+    font-size: 3rem; /* Large font size */
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.3),
+        2px 2px 5px rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.3); /* Glow effect */
+    transform: perspective(100px) rotateX(10deg) rotateY(-10deg); /* 3D effect */
+    position: absolute; /* Positioning relative to the footer */
+    right: 20px; /* Align to the far right */
+    top: 35%; /* Center vertically */
+    transform: translateY(-50%) perspective(100px) rotateX(10deg) rotateY(-10deg); /* Adjust vertical alignment and 3D effect */
+    transition: transform 0.5s ease; /* Smooth animation */
+}
+
+/* Hover Effect for Spinning */
+.footer-logo:hover {
+    transform: translateY(-50%) perspective(100px) rotateX(10deg) rotateY(-10deg) rotate(360deg); /* Spins the logo */
+}
+
+/* Footer Content (Text and Icons) */
+.footer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Spacing between text and icons */
+}
+
+/* Footer Text */
+.footer-text {
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Footer Icons */
+.footer-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.footer-icons a {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-icons a:hover {
+    color: #007BFF; /* Light gold for hover */
+}

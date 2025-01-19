@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+    <h1>Welcome to My Web Space</h1>
+    <nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    </nav>
+    <div class="header-logo">MT.</div>
+</header>
+<div class="profile-image-container">
+    <span class="wave-emoji">👋</span>
+    <img src="miska.jpg" alt="Miska Tevilin" class="profile-image">
+    <div class="speech-bubble">Relax, I promise I’m not sad—this is just my default face!</div>
+</div>
+<main>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p id="about-summary">
+                Hi there! <Strong>I’m Miska Tevilin</Strong>, an aspiring web developer, IT specialist, and career changer with a genuine interest in crafting intuitive UI/UX designs and developing websites that are both accessible and engaging. I’m highly motivated and always eager to learn new skills and technologies.
+            </p>
+            <div id="about-more">
+                <!-- Background Section -->
+                <h3 class="subtitle">My Background</h3>
+                <p>
+                    Most of my web development experience comes from school projects and personal side projects. I’m really into front-end design and UI/UX, with a strong focus on making websites user-friendly and inclusive—with a little twist. Lately, I’ve been diving deeper into accessibility testing to ensure everyone can enjoy a seamless experience.
+                </p>
+        
+                <!-- Teammate Section -->
+                <h3 class="subtitle">Me as a co-worker</h3>
+                <p>
+                    When collaborating with others, I pride myself on being approachable and adaptable. I strike a balance between introversion and extroversion, allowing me to connect effectively with a wide range of personalities. I focus on maintaining a positive and productive atmosphere, managing stress efficiently while ensuring tasks are completed reliably and to a high standard.
+                </p>
+        
+    <!-- Skills Section -->
+    <h3 class="subtitle">What I Bring to the Table</h3>
+    <div id="soft-skills">
+    <div class="skill">
+        <h4>Team Player <i class="fas fa-users"></i></h4>
+        <p>
+            At Swissport Finland Oy, I worked closely with others in fast-paced environments to meet shared goals. Through my studies, I’ve learned how to contribute effectively to group projects and value everyone’s input.
+        </p>
+    </div>
+    <div class="skill">
+        <h4>Adaptable Thinker <i class="fas fa-sync-alt"></i></h4>
+        <p>
+            Working in an airport taught me to handle last-minute changes and stay calm under pressure. I now use these skills to adjust to new challenges and find solutions quickly.
+        </p>
+    </div>
+    <div class="skill">
+        <h4>Clear Communicator <i class="fas fa-comments"></i></h4>
+        <p>
+            My job at Swissport required me to keep everyone on the same page. This experience helps me share ideas clearly and work well with teammates, whether in person or online.
+        </p>
+    </div>
+    <div class="skill">
+        <h4>Time Manager <i class="fas fa-clock"></i></h4>
+        <p>
+            Managing tight schedules at work taught me how to stay organized and meet deadlines. I bring the same focus to my studies and personal projects, making sure tasks are completed on time.
+        </p>
+    </div>
+    </div>
+        
+            <h3 class="skills-title">Technologies I'm Familiar With</h3>
+                <div id="skill-icons">
+                    <i class="fab fa-html5" title="HTML5"></i>
+                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                    <i class="fab fa-js-square" title="JavaScript"></i>
+                    <i class="fab fa-react" title="React"></i>
+                    <i class="fab fa-wordpress" title="WordPress"></i>
+                    <i class="fab fa-windows" title="Windows"></i>
+                    <i class="fab fa-apple" title="macOS"></i>
+                    <i class="fab fa-linux" title="Linux"></i>
+                </div>
+            </div>
+            <button id="read-more-btn" class="btn">Read More</button>
+        </section>
+    
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div id="project-list">
+                <!-- Projects will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+</main>
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>You’re welcome to send me a message directly here or reach out to me on LinkedIn.</p>
+    <form
+        action="https://formspree.io/f/mwppwgdl"
+        method="POST"
+        class="fancy-form"
+    >
+        <label>
+            Your Name:
+            <input type="text" name="name" placeholder="Enter your name" required>
+        </label>
+        <label>
+            Your Email:
+            <input type="email" name="email" placeholder="Enter your email" required>
+        </label>
+        <label>
+            Your Message:
+            <textarea name="message" placeholder="Type your message here" required></textarea>
+        </label>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</section>
+</main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                MT.
+            </div>
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2025 Miska Tevilin. Thanks for scrolling all the way down! You’ve unlocked a virtual cookie 🍪—enjoy the sweetness and keep being awesome!
+                </div>
+                <div class="footer-icons">
+                    <a href="https://www.linkedin.com/in/miska-tevilin-386083262" target="_blank" class="linkedin-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Miska1995" target="_blank" class="github-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
